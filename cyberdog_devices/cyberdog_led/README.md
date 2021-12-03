@@ -26,30 +26,30 @@ uint8  priority
 uint64 timeout
 
 Client在向ROS2 Service发送LED命令时,填充上面的四个字段进入request, clientid根据描述定义填入，command对应为SensorDetectionNode中的
-uint8 REAR_LED_OFF = 6
-uint8 REAR_LED_RED_ON = 7
-uint8 REAR_LED_RED_BREATH = 8
-uint8 REAR_LED_RED_BLINK = 9
-uint8 REAR_LED_GREEN_ON = 10
-uint8 REAR_LED_GREEN_BREATH = 11
-uint8 REAR_LED_GREEN_BLINK = 12
+uint8 REAR_LED_OFF = 6  
+uint8 REAR_LED_RED_ON = 7  
+uint8 REAR_LED_RED_BREATH = 8  
+uint8 REAR_LED_RED_BLINK = 9  
+uint8 REAR_LED_GREEN_ON = 10  
+uint8 REAR_LED_GREEN_BREATH = 11  
+uint8 REAR_LED_GREEN_BLINK = 12  
 
-uint8 HEAD_LED_OFF = 17
-uint8 HEAD_LED_POWER_ON = 18
-uint8 HEAD_LED_POWER_OFF = 19
-uint8 HEAD_LED_DARKBLUE_ON = 20
-uint8 HEAD_LED_SKYBLUE_ON = 21
-uint8 HEAD_LED_ORANGE_ON = 22
-uint8 HEAD_LED_RED_ON = 23
-uint8 HEAD_LED_DARKBLUE_BREATH = 24
-uint8 HEAD_LED_SKYBLUE_BREATH = 25
-uint8 HEAD_LED_DARKBLUE_BLINK = 26
-uint8 HEAD_LED_ORANGE_BLINK = 27
-uint8 HEAD_LED_RED_BLINK = 28
-这些具体定义, timeout值以纳秒为单位, priority对应下面的这些定义
-uint8 TYPE_EFFECTS = 1
-uint8 TYPE_FUNCTION = 2
-uint8 TYPE_ALARM = 3
+uint8 HEAD_LED_OFF = 17  
+uint8 HEAD_LED_POWER_ON = 18  
+uint8 HEAD_LED_POWER_OFF = 19  
+uint8 HEAD_LED_DARKBLUE_ON = 20  
+uint8 HEAD_LED_SKYBLUE_ON = 21  
+uint8 HEAD_LED_ORANGE_ON = 22  
+uint8 HEAD_LED_RED_ON = 23  
+uint8 HEAD_LED_DARKBLUE_BREATH = 24  
+uint8 HEAD_LED_SKYBLUE_BREATH = 25  
+uint8 HEAD_LED_DARKBLUE_BLINK = 26  
+uint8 HEAD_LED_ORANGE_BLINK = 27  
+uint8 HEAD_LED_RED_BLINK = 28  
+这些具体定义, timeout值以纳秒为单位, priority对应下面的这些定义  
+uint8 TYPE_EFFECTS = 1  
+uint8 TYPE_FUNCTION = 2  
+uint8 TYPE_ALARM = 3  
 其中TYPE_ALARM的优先级最高.
 
 Service端的响应逻辑为: 优先相应最高优先级的command, 对于同样优先级的command, 选取最后一次到达的生效，当前生效命令超时后, 选取上一个同等优先级的命令进行响应, 直到响应队列中不再包含任何新的命令.
